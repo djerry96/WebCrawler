@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 
@@ -12,5 +13,8 @@ def crawl(url):
         print(f"Failed to retrieve the page. Status code: {response.status_code}")
 
 if __name__ == "__main__":
-    url = input("Enter the URL to crawl: ")
-    crawl(url)
+    url = os.getenv("URL")
+    if url:
+        crawl(url)
+    else:
+        print("No URL provided. Set the URL environment variable.")
