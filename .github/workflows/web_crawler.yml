@@ -26,4 +26,4 @@ jobs:
       - name: Run web crawler
         run: python web_crawler.py
         env:
-          URL: "https://example.com" # Replace with the URL you want to crawl
+          URL: "https://centos.pkgs.org/9-stream/centos-baseos-aarch64/sudo-1.9.5p2-10.el9.aarch64.rpm.html" # Replace with the URL you want to crawl
