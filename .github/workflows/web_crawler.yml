@@ -27,3 +27,9 @@ jobs:
         run: python web_crawler.py
         env:
           URL: "https://example.com" # Replace with the URL you want to crawl
+
+      - name: Upload links as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: crawled-links
+          path: links.txt
