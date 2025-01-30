@@ -26,7 +26,7 @@ jobs:
       - name: Run web crawler
         run: python web_crawler.py
         env:
-          URL: "https://example.com" # Replace with the URL you want to crawl
+          URL: "https://autosd.sig.centos.org/AutoSD-9/nightly/sample-images/" # Replace with the URL you want to crawl
 
       - name: Upload links as artifact
         uses: actions/upload-artifact@v4
