@@ -7,8 +7,11 @@ def crawl(url):
     if response.status_code == 200:
         page_content = response.text
         soup = BeautifulSoup(page_content, 'html.parser')
-        for link in soup.find_all('a'):
-            print(link.get('href'))
+        with open('links.txt', 'w') as file:
+            for link in soup.find_all('a'):
+                href = link.get('href')
+                if href:
+                    file.write(href + '\n')
     else:
         print(f"Failed to retrieve the page. Status code: {response.status_code}")
 
