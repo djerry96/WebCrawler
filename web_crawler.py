@@ -8,9 +8,10 @@ def crawl(url):
         page_content = response.text
         soup = BeautifulSoup(page_content, 'html.parser')
         with open('links.txt', 'w') as file:
-            for link in soup.find_all('a'):
-                href = link.get('href')
-                if href:
+            for link in soup.find_all('a', href=True):
+                href = link['href']
+                # Ignore query parameters for sorting/filtering
+                if not href.startswith('?C='):
                     file.write(href + '\n')
     else:
         print(f"Failed to retrieve the page. Status code: {response.status_code}")
